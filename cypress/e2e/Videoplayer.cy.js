@@ -38,7 +38,7 @@ describe('Video player', () => {
     cy.get('.btnFullscreenVideo')
     .click();
   });
-  it('Should allow to rewind left the video by 2 seconds by clicking on the rewind right arrow button', () => {
+  it('Should allow to rewind right the video by 2 seconds by clicking on the rewind right arrow button', () => {
     cy.get('[data-testid="actionRewindRightButton"]')
       .click()
   })
