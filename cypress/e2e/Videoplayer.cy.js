@@ -10,15 +10,50 @@ describe('Video player', () => {
     cy.get('.btn-primary').contains('Log in').click();
     cy.wait(2000)
     cy.visit('https://pics.io/preview/6388467241e9f500197ae681')
-    cy.wait(2000)
+    cy.wait(4000)
+  });
+  
+  it('should play the video after clicking on play/pause button in video controls', () => {
+    cy.get('.btnPlayVideo')
+      .click();
+  });
+  it('should pause the video after clicking on play/pause button in video controls', () => {
+    cy.get('.btnPlayVideo')
+      .click();
+    cy.wait(500)
+    cy.get('.btnPlayVideo')
+      .click();
   });
 
-  it('User can rewind left the video by 2 seconds by clicking on the rewind right arrow button', () => {
-    cy.get('[data-testid="actionRewindRightButton"]').click()
-  })
+  it('should allow to mute video', () => {
+    cy.get('.btnVolumeVideo')
+      .click();
+  });
 
-  it('User can rewind left the video by 2 seconds by clicking on the rewind left arrow button', () => {
-    cy.get('[data-testid="actionRewindRightButton"]').click()
-    cy.get('[data-testid="actionRewindLeftButton"]').click()
-  })
+  it('should allow to unmute video', () => {
+    cy.get('.btnVolumeVideo')
+      .click();
+    cy.get('.btnVolumeVideo')
+      .click();
+  });
+
+  it.only('should allow to enable fullscreen mode', () => {
+    cy.get('.btnFullscreenVideo')
+      .click();
+  });
+
+      // cy.get('.btnPlayVideo')
+    //   .click();
+    // cy.get('.popupPlayVideo')
+    //   .click();
+    // cy.get('video')
+    //   .click();
+    it('Should allow to rewind left the video by 2 seconds by clicking on the rewind right arrow button', () => {
+      cy.get('[data-testid="actionRewindRightButton"]').click()
+    })
+  
+    it('Should allow to rewind left the video by 2 seconds by clicking on the rewind left arrow button', () => {
+      cy.get('[data-testid="actionRewindRightButton"]').click()
+      cy.get('[data-testid="actionRewindLeftButton"]').click()
+    })
 })
